@@ -1,0 +1,28 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+public class Solution {
+  public static void main(String arg[])
+  {
+     short y;
+      Scanner in=new Scanner(System.in);
+      y=in.nextShort();
+      if (y == 1918)
+              { System.out.println("26.09.1918");}
+      else if (((y <= 1917) & (y%4 == 0)) || ((y> 1918) & (y%400 == 0 || 
+              ((y%4 == 0) & (y%100 != 0)))))
+        {System.out.println("12.09."+y);}
+      else
+       { System.out.println("13.09."+y);}
+  }
+
+}
