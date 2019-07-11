@@ -1,0 +1,33 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+public static void main(String arg[])
+{int c;
+    int a[]=new int[26];
+    
+    String b;
+    Scanner in=new Scanner(System.in);
+    for(int i=0;i<26;i++)
+    {
+        a[i]=in.nextInt();
+    }
+    b=in.next();
+   
+c=b.length();
+int max=0;
+for(int i=0;i<c;i++)
+{
+ char temp=b.charAt(i);
+ max = max < a[temp - 97] ? a[temp- 97] : max;
+}
+System.out.println(max * c);
+}
+
+}
