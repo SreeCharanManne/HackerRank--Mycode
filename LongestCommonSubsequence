@@ -1,0 +1,65 @@
+import java.util.*;
+import java.lang.*;
+
+class LCS{
+static void Bottom_up_LCS(String X,String Y)
+{
+int m=X.length();
+int n=Y.length();
+int C[][]=new int[m+1][n+1];
+String b[][]=new String[m+1][n+1];
+for(int i=0;i<=n;i++)
+{
+C[0][i]=0;
+}
+for(int i=0;i<=m;i++)
+{
+C[i][0]=0;
+}
+for(int i=1;i<=m;i++)
+{for(int j=1;j<=n;j++)
+{if(X.charAt(i-1)==Y.charAt(j-1))
+{C[i][j]=C[i-1][j-1]+1;
+b[i][j]="a";}
+else if(C[i-1][j]>=C[i][j-1])
+{C[i][j]=C[i-1][j];
+b[i][j]="b";}
+else
+{C[i][j]=C[i][j-1];
+b[i][j]="c";}
+}
+}System.out.println(C[m][n]);
+print_LCS(b,X,Y,C,m,n);
+
+}
+
+static void print_LCS(String X,String Y,int C[][],int i,int j)
+{
+        int ind = C[i][j]; 
+        int temp = ind; 
+        String lcs[] = new String[ind+1]; 
+        lcs[ind] =" ";  
+        while (i > 0 && j > 0) 
+        { if (X.charAt(i-1) == Y.charAt(j-1)) 
+            {lcs[ind-1] = ""+X.charAt(i-1);  
+                i--;  
+                j--;  
+                ind--;      
+            } 
+         else if (C[i-1][j] > C[i][j-1]) 
+                i--;
+	     else
+                j--; 
+        } 
+        for(int k=0;k<=temp;k++) 
+            System.out.print(lcs[k]); 
+}
+
+public static void main(String arg[])
+{Scanner in=new Scanner(System.in);
+String a,b;
+a=in.nextLine();
+b=in.nextLine();
+Bottom_up_LCS(a,b);
+
+}}
