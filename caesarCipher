@@ -1,0 +1,22 @@
+ static String caesarCipher(String s, int k) {String d="";
+        String a="abcdefghijklmnopqrstuvwxyz";
+        String b="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        for(int i=0;i<s.length();i++)
+        {String f=s.toLowerCase(); 
+            if(f.charAt(i)>=97 && f.charAt(i)<=122)
+            {int g=a.indexOf(f.charAt(i));
+            //System.out.println(g);
+            if(s.charAt(i)>=97 && s.charAt(i)<=122)
+            d+=a.charAt((g+k)%26);
+            else
+            {d+=b.charAt((g+k)%26);}
+            
+            }
+            else{d+=f.charAt(i);}
+
+        }
+
+return d;
+
+    }
