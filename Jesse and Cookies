@@ -1,0 +1,24 @@
+import java.util.*;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int k = in.nextInt();
+        int cnt = 0;
+        PriorityQueue<Integer> p = new PriorityQueue<Integer>();
+        for(int i = 0; i < n; i++) {
+            p.add(in.nextInt());
+        }
+        while(p.size() > 1 && p.peek() < k) {
+            int l = p.poll();
+            int s = p.poll();
+            p.add(l + 2*s);
+            cnt++;
+        }
+        if(p.peek() < k) {
+            System.out.print(-1);
+        } else {
+            System.out.print(cnt);
+        }
+    }
+}
